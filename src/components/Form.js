@@ -21,7 +21,7 @@ const Form = ({atualiza, lista}, ref) =>{
             data.preferencial = false;
         }
         
-         data.id = new Date().getTime();
+         data.id = new Date().getTime()
 
 
         const clientes = localStorage.getItem("clientes")? JSON.parse(localStorage.getItem("clientes")):"";
