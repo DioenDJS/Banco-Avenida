@@ -23,7 +23,7 @@ const Form = ({atualiza, lista}, ref) =>{
         
          data.id = new Date().getTime()
 
-
+            
         const clientes = localStorage.getItem("clientes")? JSON.parse(localStorage.getItem("clientes")):"";
 
         localStorage.setItem("clientes", JSON.stringify([...clientes, data]));
