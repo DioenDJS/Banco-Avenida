@@ -71,9 +71,3 @@ inserir no head do index.html no diretório public
 >
 > ``npm install react-hook-form``
 
-
-## Notion:
- [notion](https://www.notion.so/Exerc-cio-React-Hook-Form-d56da3b3601f4c2a99576c4a6d16975b) <img align="center" alt="img_React" height="25" width="25" src="" style="max-width:100%;" />
-
-## Aprendizado:
-> - Manipulação  da lib React hook form como capturar os valoes em um data e como manipular erros que é muito intuitivo a implementação.
