@@ -74,7 +74,7 @@ const Main = () =>{
             <div className="col-sm-9 mt-2">
                 <Form atualiza={atualizaLista} lista={lista}/>
 
-                <table className="table table-striped">
+                <table className="table table-striped mt-3 ml-3">
                     <thead>
                         <tr>
                         <th>Nome: </th>
@@ -94,8 +94,15 @@ const Main = () =>{
 
             </div>
             <div className="controller col-sm-3">
+            <div className="col-sm-12 mx-auto mb-3">
+                <img 
+                    src="../banco.jpg"
+                    alt="Revenda herbie"
+                    className="img-fluid mx-auto d=block"
+                />
+            </div>
                 <button type="button" className="col-sm-5 mr-1 btn btn-success" onClick={handleNormalService}>Atendimento Normal</button>
-                <button type="button" className="col-sm-5 btn btn-danger" onClick={handlePreferentialService} >Atendimento Preferencial </button>  
+                <button type="button" className="col-sm-5 ml-4 btn btn-danger" onClick={handlePreferentialService} >Atendimento Preferencial </button>  
                 {
                     (painel) ?(
                         <>    
