@@ -3,6 +3,11 @@ import TableClients from './TableClients';
 import Form from './Form';
 
 const Main = () =>{
+    const [lista, setLista] = useState([]);
+    const [ tipoAtendimento , setTipoAtendimento ] = useState("");
+    const [ clienteEmAtendimento, setclienteEmAtendimento ] = useState("");
+    const [ naoHaCliente, setNaoHaCliente ] = useState("");
+    const [ painel, setPainel ] = useState(true);
 
     useEffect(() => {
         setLista(localStorage.getItem("clientes")? JSON.parse(localStorage.getItem("clientes")):[])
@@ -13,7 +18,56 @@ const Main = () =>{
         setLista(dados);
     }
 
-    const [lista, setLista] = useState([]);
+    const handlePreferentialService = () =>{
+        const clientes = JSON.parse(localStorage.getItem("clientes"));
+
+        const emAtendimneto = clientes.find(item => item.idade >= 60)
+
+        if(!emAtendimneto){
+            setNaoHaCliente(" Preferencial ")
+            setPainel(false);
+            return
+        }
+        const clientes2 = clientes.filter( item => item.id !== emAtendimneto.id);
+
+        setclienteEmAtendimento(emAtendimneto.nome)
+        setTipoAtendimento(" Preferencial ");
+
+        //atualiza o localStorage com os dados de carros2
+        localStorage.setItem("clientes", JSON.stringify(clientes2));
+
+        // atualiza a lista
+        atualizaLista(clientes2);
+    }
+
+    const handleNormalService = () => {
+        // const emAtendimneto = lista.find(item => item.idade < 60)
+
+        const clientes = JSON.parse(localStorage.getItem("clientes"));
+
+        const emAtendimneto = clientes.find(item => item.idade < 60)
+
+        if(!emAtendimneto){
+            setNaoHaCliente(" Normal ")
+            setPainel(false);
+            return
+        }
+        const clientes2 = clientes.filter( item => item.id !== emAtendimneto.id);
+
+        setclienteEmAtendimento(emAtendimneto.nome)
+        setTipoAtendimento(" Normal ");
+
+        //atualiza o localStorage com os dados de carros2
+        localStorage.setItem("clientes", JSON.stringify(clientes2));
+
+        // atualiza a lista
+        atualizaLista(clientes2);
+        
+ 
+        // pode-se limpar cada campo 
+    
+        console.log(emAtendimneto);
+    }
 
     return(
         <div className="row">
@@ -40,8 +94,19 @@ const Main = () =>{
 
             </div>
             <div className="controller col-sm-3">
-                <button type="button" className="col-sm-5 mr-1 btn btn-success" >Atendimento Normal</button>
-                <button type="button" className="col-sm-5 btn btn-success" >Atendimento Preferencial </button>     
+                <button type="button" className="col-sm-5 mr-1 btn btn-success" onClick={handleNormalService}>Atendimento Normal</button>
+                <button type="button" className="col-sm-5 btn btn-danger" onClick={handlePreferentialService} >Atendimento Preferencial </button>  
+                {
+                    (painel) ?(
+                        <>    
+                            <h3>{`Atendimento: ${tipoAtendimento}`}</h3> 
+                            <h2>{`Nome: ${clienteEmAtendimento}`}</h2>  
+                        </>
+                   ):(
+
+                       <h3>{`Não há clientes na fila ${naoHaCliente}`}</h3>
+                   )
+                }
             </div>
         </div>
     )

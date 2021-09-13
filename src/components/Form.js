@@ -41,7 +41,7 @@ const Form = ({atualiza, lista}, ref) =>{
         <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="input-group mb-3">
                         <div className="input-group-prepend ml-3">
-                            <span className="input-group-text">Modelo:</span>
+                            <span className="input-group-text">Nome:</span>
                         </div>
                         <input 
                             type="text" 
@@ -69,13 +69,13 @@ const Form = ({atualiza, lista}, ref) =>{
                     <div className="input-group-append ml-3">
                             <input 
                                 type="submit"
-                                className={chamaAtendimentoPreferencial ? "d-none" : "btn btn-primary"}
-                                value="Atendimento Normal"
+                                className={chamaAtendimentoPreferencial ? "d-none" : "btn btn-warning"}
+                                value="Ficha"
                             />
                             <input 
                                 type="submit"
                                 className={chamaAtendimentoPreferencial ? "btn btn-success" : "d-none"}
-                                value="Atendimento Preferencial"
+                                value="Ficha"
                             />
                         </div>    
                         <MessageErros errors={errors} ano_atual={ano_atual}/>
