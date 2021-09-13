@@ -38,6 +38,7 @@ const Main = () =>{
 
         // atualiza a lista
         atualizaLista(clientes2);
+        setPainel(true)
     }
 
     const handleNormalService = () => {
@@ -63,7 +64,7 @@ const Main = () =>{
         // atualiza a lista
         atualizaLista(clientes2);
         
- 
+        setPainel(true)
         // pode-se limpar cada campo 
     
         console.log(emAtendimneto);
