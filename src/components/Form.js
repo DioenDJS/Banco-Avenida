@@ -59,7 +59,7 @@ const Form = ({atualiza, lista}, ref) =>{
                             autoFocus
                         />
                          <div className="input-group-prepend ml-3">
-                            <span className="input-group-text">Data-de-aniversário:</span>
+                            <span className="input-group-text">Ano-De-Nascimento:</span>
                         </div>
                         <input 
                             type="date" 
