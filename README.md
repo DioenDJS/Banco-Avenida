@@ -13,6 +13,7 @@
 - [Node.js](https://nodejs.org/en/) <img align="center" alt="img nodejs" height="20" width="25" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" style="max-width:100%;" />
 - [ReactJS](https://pt-br.reactjs.org/) <img align="center" alt="img_React" height="20" width="25" src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" style="max-width:100%;" />
 - [ReactHookForm](https://react-hook-form.com/) 
+- [reac-notificações](https://www.npmjs.com/package/react-notifications)
 ## Projeto :computer:
 
 ### - Trabalho 
@@ -71,3 +72,6 @@ inserir no head do index.html no diretório public
 >
 > ``npm install react-hook-form``
 
+> - reac-notificações
+>
+>``npm install react-notifications``
