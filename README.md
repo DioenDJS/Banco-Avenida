@@ -5,7 +5,7 @@
     <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/DioenDJS/Banco-Avenida" />
 </p>
 <img src="bancoimg.png" alt="imagem do projeto" height="500" width="750" />
-
+<img src="bancoNotificationimg.png" alt="imagem do projeto" height="500" width="750" />
 
 
 ## Tecnologias Utilizadas no projeto :construction:
