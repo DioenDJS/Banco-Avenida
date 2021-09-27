@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useForm} from "react-hook-form";
+import { NotificationContainer } from 'react-notifications';
 import MessageErros from './MessageErros';
+import NotificationsSend from "./NotificationsSend";
 
+import 'react-notifications/lib/notifications.css';
 const Form = ({atualiza, lista}, ref) =>{
     const ano_atual = new Date().getFullYear();
     const { register, handleSubmit, formState: {errors}, setValue } = useForm()
 
-    const [ chamaAtendimentoPreferencial , setChamaAtendimentoPreferencial ] = useState(false);
+    // const [ chamaAtendimentoPreferencial , setChamaAtendimentoPreferencial ] = useState(true);
 
     const onSubmit = data => {
 
@@ -32,6 +35,8 @@ const Form = ({atualiza, lista}, ref) =>{
 
         setValue("nome","");
         setValue("dataDeAniversario","");
+
+        NotificationsSend("success", "Atenção!", "Cliente cadastrado !");
     }
 
     // setChamaAtendimentoPreferencial(register.dataDeAniversario.target.current)
@@ -69,16 +74,13 @@ const Form = ({atualiza, lista}, ref) =>{
                     <div className="input-group-append ml-3">
                             <input 
                                 type="submit"
-                                className={chamaAtendimentoPreferencial ? "d-none" : "btn btn-warning"}
+                                className="btn btn-warning"
                                 value="Ficha"
                             />
-                            <input 
-                                type="submit"
-                                className={chamaAtendimentoPreferencial ? "btn btn-success" : "d-none"}
-                                value="Ficha"
-                            />
+                          
                         </div>    
                         <MessageErros errors={errors} ano_atual={ano_atual}/>
+                        <NotificationContainer />
         </form>
     )
 };

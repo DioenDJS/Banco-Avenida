@@ -1,6 +1,8 @@
-import React, {useState, useEffect, useRef} from 'react';
+import React, {useState, useEffect} from 'react';
 import TableClients from './TableClients';
 import Form from './Form';
+import { NotificationContainer } from 'react-notifications';
+import NotificationsSend from "./NotificationsSend";
 
 const Main = () =>{
     const [lista, setLista] = useState([]);
@@ -26,6 +28,8 @@ const Main = () =>{
         if(!emAtendimneto){
             setNaoHaCliente(" Preferencial ")
             setPainel(false);
+            NotificationsSend("error", `Não ha Cliente na fila de atendimento Preferencial !`);
+            <NotificationContainer />
             return
         }
         const clientes2 = clientes.filter( item => item.id !== emAtendimneto.id);
@@ -39,6 +43,10 @@ const Main = () =>{
         // atualiza a lista
         atualizaLista(clientes2);
         setPainel(true)
+
+        NotificationsSend("warning", "Atenção!",`Cliente Preferencial ${emAtendimneto.nome} em atendimento !`);
+        <NotificationContainer />
+       
     }
 
     const handleNormalService = () => {
@@ -51,6 +59,8 @@ const Main = () =>{
         if(!emAtendimneto){
             setNaoHaCliente(" Normal ")
             setPainel(false);
+            NotificationsSend("error",`Não há Clientes na fila de atendimento !`);
+            <NotificationContainer />
             return
         }
         const clientes2 = clientes.filter( item => item.id !== emAtendimneto.id);
@@ -68,6 +78,8 @@ const Main = () =>{
         // pode-se limpar cada campo 
     
         console.log(emAtendimneto);
+        NotificationsSend("info", "Atenção!",`Cliente ${emAtendimneto.nome} em atendimento !`);
+        <NotificationContainer />
     }
 
     return(
@@ -104,7 +116,7 @@ const Main = () =>{
             </div>
                 <button type="button" className="col-sm-5 mr-1 btn btn-success" onClick={handleNormalService}>Atendimento Normal</button>
                 <button type="button" className="col-sm-5 ml-4 btn btn-danger" onClick={handlePreferentialService} >Atendimento Preferencial </button>  
-                {
+                {/* {
                     (painel) ?(
                         <>    
                             <h3>{`Atendimento: ${tipoAtendimento}`}</h3> 
@@ -114,7 +126,7 @@ const Main = () =>{
 
                        <h3>{`Não há clientes na fila ${naoHaCliente}`}</h3>
                    )
-                }
+                } */}
             </div>
         </div>
     )
